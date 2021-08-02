@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToDoItemModel } from 'src/app/models/todo.models';
 
 @Component({
   selector: 'app-todo-list-items',
@@ -15,11 +16,5 @@ export class TodoListItemsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-}
-
-interface ToDoItemModel {
-  description: string;
-
 
 }
