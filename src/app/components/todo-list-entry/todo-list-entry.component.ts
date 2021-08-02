@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class TodoListEntryComponent implements OnInit {
 
+  @Output() itemsAdded = new EventEmitter<string>();
   form!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
@@ -27,7 +28,8 @@ export class TodoListEntryComponent implements OnInit {
       console.warn('There are errors');
       focusMe.focus();
     } else {
-      console.log(this.form.value);
+      //console.log(this.form.value);
+      this.itemsAdded.emit(this.item?.value);
       focusMe.value = '';
       this.form.reset();
       focusMe.focus();
