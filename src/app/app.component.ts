@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'Intro to Programming at Progressive';
+
+  topics = [
+    'Angular',
+    'Redux',
+    'APIs'
+  ];
+
+  doIt() {
+    this.title = this.title.toUpperCase();
+  };
+
 }
