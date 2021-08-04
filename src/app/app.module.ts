@@ -10,6 +10,7 @@ import { TodoListItemsComponent } from './components/todo-list-items/todo-list-i
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { TodosDataService } from './services/todos.data-service';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TodosDataService } from './services/todos.data-service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [TodosDataService],
   bootstrap: [AppComponent]
