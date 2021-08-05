@@ -1,5 +1,6 @@
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, Action } from '@ngrx/store';
+import { createReducer, Action, on } from '@ngrx/store';
+import * as actions from '../actions/learning.actions';
 
 export interface LearningEntity {
   id: string;
@@ -17,7 +18,8 @@ export const adapter = createEntityAdapter<LearningEntity>();
 const initialState = adapter.getInitialState();
 
 const reducerFunction = createReducer(
-  initialState
+  initialState,
+  on(actions.loadLearningDataSucceeded, (state, action) => adapter.setMany(action.payload, state))
 );
 
 export function reducer(state: LearningState = initialState, action: Action): LearningState {

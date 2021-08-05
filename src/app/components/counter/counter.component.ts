@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState, selectCounterCurrent } from 'src/app/reducers';
-import * as actions from "../../actions/counter-actions";
+import * as actions from "../../actions/counter.actions";
 
 @Component({
   selector: 'app-counter',
