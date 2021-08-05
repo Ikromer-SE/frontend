@@ -9,6 +9,7 @@ import * as actions from "../../actions/counter-actions";
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css']
 })
+
 export class CounterComponent implements OnInit {
 
   current$!: Observable<number>;
@@ -17,6 +18,10 @@ export class CounterComponent implements OnInit {
 
   ngOnInit(): void {
     this.current$ = this.store.select(selectCounterCurrent);
+  }
+
+  reset() {
+    this.store.dispatch(actions.countReset());
   }
 
   increment() {
