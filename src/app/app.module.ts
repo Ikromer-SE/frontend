@@ -15,6 +15,9 @@ import { CounterComponent } from './components/counter/counter.component';
 import { StoreModule } from '@ngrx/store'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { reducers } from './reducers';
+import { LearningPathComponent } from './components/learning-path/learning-path.component';
+import { LearningPathEntryComponent } from './components/learning-path-entry/learning-path-entry.component';
+import { LearningPathListComponent } from './components/learning-path-list/learning-path-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { reducers } from './reducers';
     TodoListItemsComponent,
     DashboardComponent,
     NavigationComponent,
-    CounterComponent
+    CounterComponent,
+    LearningPathComponent,
+    LearningPathEntryComponent,
+    LearningPathListComponent
   ],
   imports: [
     BrowserModule,
