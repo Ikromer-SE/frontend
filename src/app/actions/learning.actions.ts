@@ -21,11 +21,11 @@ export const loadLearningDataFailed = createAction(
 
 // add learning item
 export const learningItemCreated = createAction(
-  '[app learning] learning itemcreated',
+  '[app learning] learning item created',
   props<{ payload: LearningItemCreate }>()
 );
 
-
+// add temporary learning item
 export const temporaryLearningItemCreated = createAction(
   '[app learning] temporary learning item created',
   props<{ payload: LearningEntity }>()

@@ -11,6 +11,21 @@ export class LearningEffects {
 
   readonly baseUrl = environment.apiUrl + '/learningitems';
 
+  saveTheData = createEffect(() =>
+    this.actions$.pipe(
+      ofType(actions.temporaryLearningItemCreated), // we only care that temporaryLearningItemCreated
+      map(a => a.payload), // temporaryLearningItemCreated => LearningItemEntity (with a fake id)
+      switchMap(originalItem => this.http.post<LearningEntity>(this.baseUrl, {
+        topic: originalItem.topic,
+        competency: originalItem.competency,
+        notes: originalItem.notes
+      }).pipe(
+        map(payload => actions.learningItemSaved({ oldId: originalItem.id, payload }))
+      )
+      )
+    ), { dispatch: true }
+  )
+
   loadTheData$ = createEffect(() =>
     this.actions$.pipe(
       ofType(actions.loadLearningData), // only do this if it is a loadLearningData action. Otherwise, forget about it...
